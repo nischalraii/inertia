@@ -25,7 +25,7 @@ First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/your-username/your-repository.git
-cd your-repository` 
+cd your-repository
 ```
 
 ### Setting Up the Backend
@@ -35,26 +35,26 @@ cd your-repository`
 2.  Install the PHP dependencies:
     
     ```bash
-    `composer install` 
+    composer install 
     ```
     
 3.  Copy the example environment file and update the environment variables:
     ```bash
-    `cp .env.example .env` 
+    cp .env.example .env
     ```
     
 4.  Generate the application key:
 	```bash
-    `php artisan key:generate` 
+    php artisan key:generate 
     ```
     
 5.  Run the database migrations (ensure your database is configured in `.env`):
 	```bash
-	`php artisan migrate`
+	php artisan migrate
 	```
 6.  Start the Laravel development server:
     ```bash
-	`php artisan serve`
+	php artisan serve
 	```
 
 ### Setting Up the Frontend
@@ -76,11 +76,11 @@ To run the project using Docker, follow these steps:
 
 1.  Pull the Docker image:
 	```bash
-    `docker pull nischalraii/inertia` 
+    docker pull nischalraii/inertia
     ```
 3.  Run the Docker container:
 	```bash
-	'docker run -p 8000:8000 nischalraii/inertia'
+	docker run -p 8000:8000 nischalraii/inertia
 	```
 
     
