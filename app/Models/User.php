@@ -33,6 +33,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = [
+        'roleName',
+    ];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -52,6 +56,11 @@ class User extends Authenticatable
 
     public function hasRole($roleName): bool
     {
-        return self::where('name', $roleName)->exists();
+        return $this->roles()->where('name', $roleName)->exists();
+    }
+
+    public function getRoleNameAttribute()
+    {
+        return $this->roles->first() ? $this->roles->first()->name : null;
     }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from '@inertiajs/react';
 
 // Utility function to paginate data
 const paginate = (array, page_size, page_number) => {
@@ -36,7 +37,13 @@ const Table = ({ items, onEdit, onDelete }) => {
       {/* Header with Search Inputs */}
       <div className="flex justify-between mb-4">
         <div>
-          <h2 className="text-xl font-semibold">Posts</h2>
+        <button
+      className="px-4 py-2 bg-gray-600 text-white rounded mr-2"
+      onClick={() => window.location.href = route('posts.create')}
+    >
+      Go to Create Post
+    </button>
+          {/* <h2 className="text-xl font-semibold">Posts</h2> */}
         </div>
         <div className="flex space-x-4">
           <input
@@ -76,7 +83,14 @@ const Table = ({ items, onEdit, onDelete }) => {
                   <td className="py-3 px-6 text-left whitespace-nowrap">
                     {(currentPage - 1) * pageSize + index + 1}
                   </td>
-                  <td className="py-3 px-6 text-left whitespace-nowrap">{item.title}</td>
+                  <td className="py-3 px-6 text-left whitespace-nowrap">
+                    <Link
+                      href={route('posts.show', item.id)} // Navigate to the detailed view of the post
+                      className="text-black-600 hover:text-blue-900"
+                    >
+                      {item.title}
+                    </Link>
+                  </td>
                   <td className="py-3 px-6 text-left whitespace-nowrap">
                     {item.categoryName ? item.categoryName : 'N/A'}
                   </td>

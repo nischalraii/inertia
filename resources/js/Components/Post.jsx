@@ -6,6 +6,7 @@ const Post = ({ post }) => {
   const tagsArray = post.tags ? post.tags.split(',').map(tag => tag.trim()) : [];
 
   return (
+    
     <article className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
       {/* Post Image */}
       {post.featured_image && (

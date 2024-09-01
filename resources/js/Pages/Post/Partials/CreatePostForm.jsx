@@ -11,7 +11,7 @@ export default function CreatePostForm({ categories }) {
         body: '',
         category_id: '',
         tags: '',
-        status: '', // Include status in form initialization
+        status_id: '', // Include status in form initialization
         featured_image: null,
     });
 
@@ -29,13 +29,14 @@ export default function CreatePostForm({ categories }) {
     // Handle form submission
     const submit = (e) => {
         e.preventDefault();
+        console.log("submit")
 
         const formData = new FormData();
         formData.append('title', data.title);
         formData.append('body', data.body);
         formData.append('category_id', data.category_id);
         formData.append('tags', data.tags);
-        formData.append('status', data.status); // Append status
+        formData.append('status_id', data.status_id); // Append status
 
         if (data.featured_image) {
             formData.append('featured_image', data.featured_image);
@@ -128,12 +129,12 @@ export default function CreatePostForm({ categories }) {
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="status" value="Status" />
+                    <InputLabel htmlFor="status_id" value="Status" />
                     <select
-                        id="status"
+                        id="status_id"
                         className="mt-1 block w-full"
-                        value={data.status}
-                        onChange={(e) => setData('status', e.target.value)}
+                        value={data.status_id}
+                        onChange={(e) => setData('status_id', e.target.value)}
                         required
                     >
                         <option value="">Select Status</option>
@@ -143,7 +144,7 @@ export default function CreatePostForm({ categories }) {
                             </option>
                         ))}
                     </select>
-                    <InputError className="mt-2" message={errors.status} /> {/* Fixed error message */}
+                    <InputError className="mt-2" message={errors.status_id} /> {/* Fixed error message */}
                 </div>
 
                 <div>
@@ -162,7 +163,7 @@ export default function CreatePostForm({ categories }) {
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
-                    <button type="submit" className="btn btn-primary" disabled={processing}>
+                    <button type="submit" className="px-4 py-2 bg-gray-600 text-white rounded mr-2" disabled={processing}>
                         Create Post
                     </button>
                 </div>
